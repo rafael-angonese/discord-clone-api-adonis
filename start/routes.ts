@@ -36,3 +36,9 @@ Route.post('register', 'AuthController.register')
 Route.post('authenticate', 'AuthController.authenticate')
 
 Route.get('users', 'UsersController.index').middleware('auth')
+
+Route.get('servers', 'ServersController.index').middleware('auth')
+Route.post('servers', 'ServersController.store').middleware('auth')
+Route.get('servers/:id', 'ServersController.show').middleware('auth')
+Route.put('servers/:id', 'ServersController.update').middleware('auth')
+Route.delete('servers/:id', 'ServersController.delete').middleware('auth')
