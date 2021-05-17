@@ -4,13 +4,11 @@ import {
   BaseModel,
   belongsTo,
   BelongsTo,
-  hasMany,
-  HasMany
 } from '@ioc:Adonis/Lucid/Orm'
 import User from 'App/Models/User'
-import Channel from 'App/Models/User'
+import Server from 'App/Models/User'
 
-export default class Server extends BaseModel {
+export default class Channel extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
@@ -19,6 +17,9 @@ export default class Server extends BaseModel {
 
   @column()
   public userId: number
+
+  @column()
+  public serverId: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
@@ -32,7 +33,7 @@ export default class Server extends BaseModel {
   @belongsTo(() => User)
   public user: BelongsTo<typeof User>
 
-  @hasMany(() => Channel)
-  public channels: HasMany<typeof Channel>
+  @belongsTo(() => Server)
+  public server: BelongsTo<typeof Server>
 
 }

@@ -8,6 +8,7 @@ import {
   HasMany,
 } from '@ioc:Adonis/Lucid/Orm'
 import Server from 'App/Models/Server'
+import Channel from 'App/Models/Channel'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -33,6 +34,9 @@ export default class User extends BaseModel {
 
   @hasMany(() => Server)
   public servers: HasMany<typeof Server>
+
+  @hasMany(() => Channel)
+  public channels: HasMany<typeof Channel>
 
   @beforeSave()
   public static async hashPassword (user: User) {
