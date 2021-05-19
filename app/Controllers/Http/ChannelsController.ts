@@ -3,8 +3,8 @@ import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import Channel from 'App/Models/Channel'
 
 export default class ChannelsController {
-  public async index() {
-    const channels = await Channel.all()
+  public async index({ params }: HttpContextContract) {
+    const channels = await Channel.query().where('server_id', params.server_id)
 
     return channels
   }

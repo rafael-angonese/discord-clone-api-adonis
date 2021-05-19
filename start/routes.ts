@@ -43,7 +43,7 @@ Route.get('servers/:id', 'ServersController.show').middleware('auth')
 Route.put('servers/:id', 'ServersController.update').middleware('auth')
 Route.delete('servers/:id', 'ServersController.delete').middleware('auth')
 
-Route.get('channels', 'ChannelsController.index').middleware('auth')
+Route.get('channels/:server_id', 'ChannelsController.index').middleware('auth')
 Route.post('channels', 'ChannelsController.store').middleware('auth')
 Route.get('channels/:id', 'ChannelsController.show').middleware('auth')
 Route.put('channels/:id', 'ChannelsController.update').middleware('auth')
