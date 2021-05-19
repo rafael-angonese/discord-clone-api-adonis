@@ -3,8 +3,11 @@ import { schema } from '@ioc:Adonis/Core/Validator'
 import ChannelMessage from 'App/Models/ChannelMessage'
 
 export default class ChannelMessagesController {
-  public async index() {
-    const channelMessages = await ChannelMessage.all()
+  public async index({ params }: HttpContextContract) {
+    const channelMessages = await ChannelMessage.query().where('channel_id', params.channel_id)
+    .preload('user', queryBuilder => {
+      return queryBuilder.select('id', 'name')
+    })
 
     return channelMessages
   }

@@ -49,7 +49,7 @@ Route.get('channels/:id', 'ChannelsController.show').middleware('auth')
 Route.put('channels/:id', 'ChannelsController.update').middleware('auth')
 Route.delete('channels/:id', 'ChannelsController.delete').middleware('auth')
 
-Route.get('channel_messages', 'ChannelMessagesController.index').middleware('auth')
+Route.get('channel_messages/:channel_id', 'ChannelMessagesController.index').middleware('auth')
 Route.post('channel_messages', 'ChannelMessagesController.store').middleware('auth')
 Route.get('channel_messages/:id', 'ChannelMessagesController.show').middleware('auth')
 Route.put('channel_messages/:id', 'ChannelMessagesController.update').middleware('auth')
