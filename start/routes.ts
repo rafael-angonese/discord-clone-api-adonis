@@ -34,6 +34,7 @@ Route.get('health', async ({ response }) => {
 
 Route.post('register', 'AuthController.register')
 Route.post('authenticate', 'AuthController.authenticate')
+Route.get('me', 'AuthController.me').middleware('auth')
 
 Route.get('users', 'UsersController.index').middleware('auth')
 
