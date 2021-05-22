@@ -1,25 +1,31 @@
-import Ws from 'App/Services/Ws'
+import Ws from 'App/Services/WebSocket/Ws'
+import ChannelMessagesService from 'App/Services/WebSocket/ChannelMessage/ChannelMessageService'
+
 Ws.boot()
 
-/**
- * Listen for incoming socket connections
- */
+interface ChannelMessageProps {
+  message: string
+  channel_id: number
+  user_id: number
+}
+
+// RFC - WebSockets support in AdonisJS #37
+// https://github.com/adonisjs/rfcs/pull/37
+// https://github.com/thetutlage/rfcs/blob/develop/active-rfcs/0000-websockets.md
+
+// Suport Controllers, Middleware, Working with namespaces, Rooms, CORS
+// import Ws from '@ioc:Adonis/Addons/Ws'
+// Ws.on('message', 'ChatController.handleMessage')
+
+
 Ws.io.on('connection', (socket) => {
+  const messagesService = new ChannelMessagesService()
 
-  console.log('\n----------- conectou ----------------');
-  console.log(socket.id);
-  console.log('---------------------------');
-
-  // socket.emit('news', { hello: 'world' })
-
-  socket.on('sendMessage', (data) => {
-    console.log(data)
-    socket.emit('newMessage', data)
+  socket.on('sendMessage', (data: ChannelMessageProps) => {
+    messagesService.create(data)
   })
 
-  socket.on("disconnect", async () => {
-    console.log('\n----------- desconectou----------------');
-    console.log(socket.id);
-    console.log('---------------------------');
-  });
+  socket.on('disconnect', async () => {
+    // console.log(socket.id)
+  })
 })
