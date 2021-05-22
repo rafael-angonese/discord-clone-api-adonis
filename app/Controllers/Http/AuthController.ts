@@ -21,6 +21,12 @@ export default class AuthController {
     return token.toJSON()
   }
 
+  public async me({ auth }: HttpContextContract) {
+    const user = auth.user
+
+    return user!.toJSON()
+  }
+
   public async logout({ auth }: HttpContextContract) {
     await auth.use('api').logout()
 
