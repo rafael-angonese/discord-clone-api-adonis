@@ -1,7 +1,9 @@
 {
-  "name": "rafael-angonese-adonisjs",
+  "name": "discord-clone-api-adonis",
   "version": "1.0.0",
-  "private": true,
+  "repository": "https://github.com/rafael-angonese/discord-clone-api-adonis.git",
+  "author": "Rafael Angonese <rafael.angonese09@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "build": "node ace build --production",
     "start": "node server.js",
