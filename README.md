@@ -16,11 +16,12 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 Este projeto é uma API que fornece informações para um frontend ele tem como objetivo aplicar algumas tecnologias de forma prática.
 
 Funcionalidades:
-  - CRUDs.
-  - Autenticação.
-  - Realtime.
 
-  ## Ambiente de desenvolvimento
+- CRUDs.
+- Autenticação.
+- Realtime.
+
+## Ambiente de desenvolvimento
 
 ```bash
 node --version
@@ -34,19 +35,26 @@ yarn --version
 
 - Clone o repositório
 - Instale as dependências com `yarn`
+
 ```bash
 yarn install
 ```
+
 - Execute as migrations
+
 ```bash
 node ace migration:run
 ```
+
 - Inicie o servidor com `yarn`
+
 ```bash
 yarn dev
 ```
+
 - A aplicação pode ser acessada em [`localhost:3333`](http://localhost:3333).
 - Você pode verificar uma pequena documentação das rotas da API através da collection exportada via Postman, os arquivos da collection estão na pasta ./docs
+- Execute o Front-end que está [aqui](https://github.com/rafael-angonese/discord-clone-web-next)
 
 ## 📄 Licença
 
